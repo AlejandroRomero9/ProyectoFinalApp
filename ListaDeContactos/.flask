@@ -1,0 +1,2 @@
+FLASK_APP=lista
+FLASK_DEBUG=1
