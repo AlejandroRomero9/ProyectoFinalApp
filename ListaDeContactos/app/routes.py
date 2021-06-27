@@ -23,8 +23,7 @@ def login():
         return redirect(url_for("index"))
     form = LoginForm()
     if form.validate_on_submit():
-        #POST
-        #Iniciar sesión con base de datos
+        
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("No se encontro el usuario o la contraseña esta incorrecta")
@@ -35,10 +34,6 @@ def login():
     return render_template("login.html", title="Login",form=form)
 
 
-@app.route("/secreto")
-@login_required #Falto importar
-def secreto():
-    return "Pagina secreta"
 
 @app.route("/logout")
 def logout():
